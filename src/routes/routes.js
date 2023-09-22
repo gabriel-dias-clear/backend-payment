@@ -19,4 +19,19 @@ routes.post('/', async (req, res)=>{
     res.send(saveBill)
 })
 
+routes.put('/:id', async(req, res)=>{
+    let id = req.headers.id
+    let findEditItem = await billingCycleSchema.updateOne({_id:id}, {...req.body})
+    let findById = await billingCycleSchema.findById(id)
+
+    res.send(findById)
+    
+})
+
+routes.delete('/:id', async (req,res)=>{
+    let id = req.headers.id
+    let findDeleteItem = await billingCycleSchema.findByIdAndDelete(id)
+    res.send('Deletado!')
+})
+
 module.exports = routes
