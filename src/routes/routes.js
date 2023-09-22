@@ -12,7 +12,7 @@ routes.get('/', async (req, res)=>{
 })
 
 routes.post('/', async (req, res)=>{
-     let saveBill = await billingCycleSchema.create({
+    let saveBill = await billingCycleSchema.create({
         ...req.body
     }) 
 
